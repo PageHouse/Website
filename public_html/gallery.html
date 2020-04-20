@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125750811-1"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-125750811-1');
+</script>
+
+<title>Page House</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- sliderman.js -->
+    <script type="text/javascript" src="sliderman.1.3.8.js"></script>
+    <link rel="stylesheet" type="text/css" href="sliderman.css">
+    <script>
+
+        function set_body_height() { // set body height = window height
+            $('#slider_container_3').width($(window).width());
+        }
+
+        $(function () {
+            $(window).bind('resize', function () {
+                resizeMe();
+            }).trigger('resize');
+        });
+
+        /* legacy code from old menu, need to refactor for new menu */
+        $(function () {
+            //Standard height, for which the body font size is correct
+            var preferredHeight = 768;
+            //Base font size for the page
+            var fontsize = 60;
+
+            var displayHeight = $(window).width();
+            var percentage = displayHeight / preferredHeight;
+            var newFontSize = Math.floor(fontsize * percentage) - 1;
+            $(":header").css("font-size", newFontSize);
+
+            $(document).ready(function () {
+                $(window).bind('resize', set_body_height);
+                set_body_height();
+
+                $(".caption").hide();
+
+                $(".menu_item").mouseenter(function () {
+                    $(this).next().show();
+                })
+
+                $(".menu_item").mouseleave(function () {
+                    $(this).next().hide();
+                })
+            })
+    </script>
+</head>
+
+
+<body>
+
+    <nav id="nav" class="alt">
+        <ul class="leftnav">
+            <li id="home"><a href="index_2018.html">Page</a></li>
+            <!--li><a href="gallery.html" class="">Gallery</a></li>-->
+            <!--li class="dropdown">
+                <a href="" class="dropbtn">Internal</a>
+                <div class="dropdown-content">
+                    <a href="calendar.html">Calendar</a>
+                    <a href="announcements.html">Emails &amp; Announcements</a>
+                    <a href="combos.html">House Combos</a>
+                    </div>
+            </li>-->
+            <li><a href="bylaws.html" class="">Bylaws</a></li>
+            <li><a href="about.html" class="">About</a></li>
+            <li><a href="rotation_hype.html" class="">Join us!</a></li>
+        </ul>
+    </nav>
+
+    <div class="bigbox" style="background:url(); padding: 0; border: none">
+        <div id="wrapper">
+
+            <div id="examples_outer" style="margin: 0 0; ">
+
+                <div id="slider_container_3">
+
+                    <div id="SliderName_3" class="image">
+                        <img src="media/login_1.jpg" alt="" title="" />
+                        <img src="media/login_2.jpg" alt="" title="" />
+                        <img src="media/login_3.jpg" alt="" title="" />
+                        <img src="media/login_4.jpg" alt="" title="" />
+                        <img src="media/login_5.jpg" alt="" title="" />
+                        <img src="media/login_6.jpg" alt="" title="" />
+                        <img src="media/login_7.jpg" alt="" title="" />
+                    </div>
+                    <div class="c"></div>
+
+                    <script type="text/javascript">
+                            demo3Effect1 = { name: 'myEffect31', top: true, move: true, duration: 400 };
+                            demo3Effect2 = { name: 'myEffect32', right: true, move: true, duration: 400 };
+                            demo3Effect3 = { name: 'myEffect33', bottom: true, move: true, duration: 400 };
+                            demo3Effect4 = { name: 'myEffect34', left: true, move: true, duration: 400 };
+                            demo3Effect5 = { name: 'myEffect35', rows: 3, cols: 9, delay: 50, duration: 100, order: 'random', fade: true };
+                            demo3Effect6 = { name: 'myEffect36', rows: 2, cols: 4, delay: 100, duration: 400, order: 'random', fade: true, chess: true };
+
+                            effectsDemo3 = [demo3Effect6];
+                            curr_window = $(window).width();
+                            window.onresize = function (event) {
+                                curr_window = $(window).width();
+                                var demoSlider_3 = Sliderman.slider({ container: 'SliderName_3', width: curr_window, height: curr_window * 0.666, effects: effectsDemo3, display: { autoplay: 3000 } });
+
+                            };
+                            var demoSlider_3 = Sliderman.slider({ container: 'SliderName_3', width: curr_window, height: curr_window * 0.666, effects: effectsDemo3, display: { autoplay: 3000 } });
+                    </script>
+                    <div class="c"></div>
+
+                </div>
+                <div class="c"></div>
+
+            </div>
+            <div class="c"></div>
+        </div>
+        </div>
+</body>
+</html>

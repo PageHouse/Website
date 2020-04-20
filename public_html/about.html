@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript" async="" src="./index_files/analytics.js.download"></script><script async="" src="./index_files/js"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-125750811-1');
+</script>
+
+<title>Page House</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="./index_files/jquery.min.js.download"></script>
+
+    <!-- sliderman.js -->
+    <script type="text/javascript" src="sliderman.1.3.8.js"></script>
+    <link rel="stylesheet" type="text/css" href="sliderman.css">
+    <script>
+
+        function set_body_height() { // set body height = window height
+            $('#slider_container_3').width($(window).width());
+        }
+
+        $(function () {
+            $(window).bind('resize', function () {
+                resizeMe();
+            }).trigger('resize');
+        });
+
+        /* legacy code from old menu, need to refactor for new menu */
+        $(function () {
+            //Standard height, for which the body font size is correct
+            var preferredHeight = 768;
+            //Base font size for the page
+            var fontsize = 60;
+
+            var displayHeight = $(window).width();
+            var percentage = displayHeight / preferredHeight;
+            var newFontSize = Math.floor(fontsize * percentage) - 1;
+            $(":header").css("font-size", newFontSize);
+
+            $(document).ready(function () {
+                $(window).bind('resize', set_body_height);
+                set_body_height();
+
+                $(".caption").hide();
+
+                $(".menu_item").mouseenter(function () {
+                    $(this).next().show();
+                })
+
+                $(".menu_item").mouseleave(function () {
+                    $(this).next().hide();
+                })
+            })
+    </script>
+</head>
+
+
+<body>
+
+    <nav id="nav" class="alt">
+        <ul class="leftnav">
+            <li id="home"><a href="index.html">Page</a></li>
+            <!--li><a href="gallery.html" class="">Gallery</a></li>-->
+            <!--li class="dropdown">
+                <a href="login.html" class="dropbtn">Internal</a>
+                <div class="dropdown-content">
+                    <a href="calendar.html">Calendar</a>
+                    <a href="announcements.html">Emails &amp; Announcements</a>
+                    <a href="combos.html">House Combos</a>
+                    </div>
+            </li>-->
+            <li><a href="bylaws.html" class="">Bylaws</a></li>
+            <li><a href="about.html" class="">About</a></li>
+            <!--li><a href="joinus.html" class="">Join us!</a></li>-->
+        </ul>
+    </nav>
+
+    <div class="bigbox" style="padding: 0px 100px;">
+        <h2>Executive Commitee</h2>
+
+        <br>
+        <div style="margin: 0 auto; position: relative; text-align: justify;">
+            <div class="box">
+
+                <div class="human" style="background: url(media/people/nerys.jpg); background-position: center;"></div>
+
+                <div class="info">
+                    <h2>Nerys Huffman</h2>
+                    <h3>President</h3>
+                </div>
+
+            </div>
+
+            <div class="box">
+
+                <div class="human" style="background: url(media/people/vanessa.jpg); background-position: center;"></div>
+
+                <div class="info">
+                    <h2>Vanessa Mechem</h2>
+                    <h3>Vice President</h3>
+                </div>
+
+            </div>
+
+            <div class="box">
+
+                <div class="human" style="background: url(media/people/shri.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h2>Shri Deshmukh</h2>
+                    <h3>Secretary</h3>
+                </div>
+            </div>
+
+            <div class="box">
+
+                <div class="human" style="background: url(media/people/noah.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h2>Noah Sock</h2>
+                    <h3>Treasurer</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="human" style="background: url(media/people/arielle.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h2>Arielle Tycko</h2>
+                    <h3>Athletics Manager</h3>
+                </div>
+            </div>
+
+            <span class="stretch"></span>
+        </div>
+
+        <hr> 
+
+        <h2>Soc(ial) Team</h2>
+        <br>
+        <div style="margin: 0 auto; position: relative; text-align: justify;">
+
+            <div class="box">
+                <div class="human" style="background: url(media/people/thomas.jpg); background-position: center center;"></div>
+
+                <div class="info">
+                    <h3>Thomas Barrett</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="human" style="background: url(media/people/jamie.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h3>Jamie Littman</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="human" style="background: url(media/people/vanessa.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h3>Vanessa Mechem</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="human" style="background: url(media/people/rae.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h3>Rae Moar</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="human" style="background: url(media/people/sarah.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h3>Sarah Zou</h3>
+                </div>
+            </div>
+
+            
+
+            <span class="stretch"></span>
+        </div>
+
+        <hr>
+
+        <h2>Ath(letics) Team</h2>
+        <br>
+        <div style="margin: 0 auto; position: relative; text-align: justify;">
+
+            <div class="box">
+                <div class="human" style="background: url( media/people/camila.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h3>Camila Buitrago</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="human" style="background: url( media/people/jocelyn.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h3>Jocelyn Kho</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="human" style="background: url( media/people/chan.jpg); background-position: center center"></div>
+
+                <div class="info">
+                    <h3>Chan Gi Kim</h3>
+                </div>
+            </div>
+
+            <span class="stretch"></span>
+        </div>
+        </div>
+    
+
+</body></html>
