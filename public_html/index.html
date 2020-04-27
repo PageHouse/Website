@@ -1,52 +1,54 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script type="text/javascript" async="" src="./index_files/analytics.js.download"></script><script type="text/javascript" async="" src="./index_files/analytics.js.download"></script><script async="" src="./index_files/js"></script>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-125750811-1');
-</script>
-
-<title>Page House</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script type="text/javascript" async="" src="./index_files/analytics.js.download"></script><script type="text/javascript" async="" src="./index_files/analytics.js.download"></script><script async="" src="./index_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-125750811-1');
+    </script>
+    <title>Page House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
 
-    <nav id="nav" class="alt">
-        <ul class="leftnav">
-            <li id="home"><a href="index.html">Page</a></li>
-            <!--li><a href="gallery.html" class="">Gallery</a></li>-->
-            <!--li class="dropdown">
-                <a href="" class="dropbtn">Internal</a>
-                <div class="dropdown-content">
-                    <a href="calendar.html">Calendar</a>
-                    <a href="announcements.html">Emails &amp; Announcements</a>
-                    <a href="combos.html">House Combos</a>
-                    </div>
-            </li>-->
-            <li><a href="bylaws.html" class="">Bylaws</a></li>
-            <li><a href="about.html" class="">About</a></li>
-            <!--li><a href="joinus.html" class="">Join us!</a></li>-->
-        </ul>
-    </nav>
 
-    <!--div class="bigbox" style="background:url(media/page_crest.png); background-size: 4%; background-repeat: no-repeat; background-position: left; background-color: white;"-->
-        <a id="home"></a>
-        <h2>PAGE HOUSE</h2>
-        <p style="color: black" class="details">spe labor levis, et spe vinum gravis</p>
+    <div class="hero-overlay">
+
+        <nav id="nav" class="alt">
+            <ul class="leftnav">
+                <li><a href="index.html" class="">Page</a></li>
+                <li><a href="bylaws.html" class="">Bylaws</a></li>
+                <li><a href="about.html" class="">About</a></li>
+                <li><a href="events.html" class="">Events</a></li>
+            </ul>
+        </nav>
         
+        <h1>Page House</h1>
+        <h2>
+            <i>spe labor levis, et spe vinum gravis</i>
+        </h2>
+    </div>
+    <div class="hero-background">
+        <div id="hero"></div>
+    </div>
 
-    <div id="hero"></div>
+    <section>
+        <div style="display: flex;">
+            <img width="120"  style="display: block; margin: auto; padding: 24px 48px;" src="media/page_crest.png" alt=""></img>
+            <div>
+                <h1 style="text-align: left;">A Message For Prefrosh</h1>
+                <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="bigbox" style="padding: 0px 100px;">
+    <section>
         <h2>Executive Commitee</h2>
-
-        <br>
-        <div style="margin: 0 auto; position: relative; text-align: justify;">
+        <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
             <div class="box">
 
                 <div class="human" style="background: url(media/people/nerys.jpg); background-position: center;"></div>
@@ -97,16 +99,11 @@
                     <h3>Athletics Manager</h3>
                 </div>
             </div>
-
-            <span class="stretch"></span>
         </div>
-
-        <hr> 
-
+    </section>
+    <section>
         <h2>Soc(ial) Team</h2>
-        <br>
-        <div style="margin: 0 auto; position: relative; text-align: justify;">
-
+        <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
             <div class="box">
                 <div class="human" style="background: url(media/people/thomas.jpg); background-position: center center;"></div>
 
@@ -146,17 +143,11 @@
                     <h3>Sarah Zou</h3>
                 </div>
             </div>
-
-            
-
-            <span class="stretch"></span>
         </div>
-
-        <hr>
-
+    </section>
+    <section>
         <h2>Ath(letics) Team</h2>
-        <br>
-        <div style="margin: 0 auto; position: relative; text-align: justify;">
+        <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
 
             <div class="box">
                 <div class="human" style="background: url(media/people/camila.jpg); background-position: center center"></div>
@@ -182,9 +173,8 @@
                 </div>
             </div>
 
-            <span class="stretch"></span>
         </div>
-        </div>
-        <script src="main.js"></script>
+    </section>
+    <script src="main.js"></script>
     </body>
 </html>

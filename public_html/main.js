@@ -1,3 +1,6 @@
+/**
+ * The Hero class manages an image slideshow
+ */
 class Hero {
 
     constructor(container) {
@@ -12,14 +15,8 @@ class Hero {
     }
 
     loadImage() {
-
-        function zero_pad(num, size) {
-            var s = num + "";
-            while (s.length < size) s = "0" + s;
-            return s; 
-        }
-
-        if (this.total_count >= this.hero_image_count - 1) return; 
+        let zero_pad = num => `0000${num}`.slice(-4);
+        if (this.loaded_count >= this.total_count - 1) return; 
         this.loaded_count += 1;
         let img = document.createElement("img");
         img.src = "media/hero/" + zero_pad(this.loaded_count, 4) + ".jpg";
