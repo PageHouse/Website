@@ -14,53 +14,6 @@
 
 <title>Page House</title>
 <link rel="stylesheet" type="text/css" href="style.css">
-<script src="./index_files/jquery.min.js.download"></script>
-
-    <!-- sliderman.js -->
-    <script type="text/javascript" src="sliderman.1.3.8.js"></script>
-    <link rel="stylesheet" type="text/css" href="sliderman.css">
-    <script>
-
-        function set_body_height() { // set body height = window height
-            $('#slider_container_3').width($(window).width());
-        }
-
-        $(function () {
-            $(window).bind('resize', function () {
-                resizeMe();
-            }).trigger('resize');
-        });
-
-        /* legacy code from old menu, need to refactor for new menu */
-        $(function () {
-            //Standard height, for which the body font size is correct
-            var preferredHeight = 768;
-            //Base font size for the page
-            var fontsize = 60;
-
-            var displayHeight = $(window).width();
-            var percentage = displayHeight / preferredHeight;
-            var newFontSize = Math.floor(fontsize * percentage) - 1;
-            $(":header").css("font-size", newFontSize);
-
-            $(document).ready(function () {
-                $(window).bind('resize', set_body_height);
-                set_body_height();
-
-                $(".caption").hide();
-
-                $(".menu_item").mouseenter(function () {
-                    $(this).next().show();
-                })
-
-                $(".menu_item").mouseleave(function () {
-                    $(this).next().hide();
-                })
-            })
-    </script>
-</head>
-
-
 <body>
 
     <nav id="nav" class="alt">
@@ -87,76 +40,7 @@
         <p style="color: black" class="details">spe labor levis, et spe vinum gravis</p>
         
 
-    <div class="bigbox" style="background:url(); padding: 0; border: none">
-        <div id="wrapper">
-
-            <div id="examples_outer" style="margin: 0 0; ">
-
-                <div id="slider_container_3">
-
-                    <div id="SliderName_3" class="image">
-                        <img src="media/1.jpg" alt="" title="" style="display: none;">
-                        <img src="media/02.jpg" alt="" title="" style="display: none;">
-                        <img src="media/03.jpg" alt="" title="" style="display: none;">
-                        <img src="media/2.jpg" alt="" title="" style="display: none;">
-                        <img src="media/3.jpg" alt="" title="" style="display: none;">
-                        <img src="media/4.jpg" alt="" title="" style="display: none;">
-                        <img src="media/5.jpg" alt="" title="" style="display: none;">
-                        <img src="media/6.jpg" alt="" title="" style="display: none;">
-                        <img src="media/7.jpg" alt="" title="" style="display: none;">
-                        <img src="media/8.jpg" alt="" title="" style="display: none;">
-                        <img src="media/8.5.jpg" alt="" title="" style="display: none;">
-                        <img src="media/9.jpg" alt="" title="" style="display: none;">
-                        <img src="media/10.jpg" alt="" title="" style="display: none;">
-                        <img src="media/11.jpg" alt="" title="" style="display: none;">
-                        <img src="media/12.jpg" alt="" title="" style="display: none;">
-                        <img src="media/13.jpg" alt="" title="" style="display: none;">
-                        <img src="media/14.jpg" alt="" title="" style="display: none;">
-                        <img src="media/15.jpg" alt="" title="" style="display: none;">
-                        <img src="media/16.jpg" alt="" title="" style="display: none;">
-                        <img src="media/17.jpg" alt="" title="" style="display: none;">
-                        <img src="media/17.5.jpg" alt="" title="" style="display: none;">
-                        <img src="media/18.jpg" alt="" title="" style="display: none;">
-                        <img src="media/20.jpg" alt="" title="" style="display: none;">
-                        <img src="media/21.JPG" alt="" title="" style="display: none;">
-                        <img src="media/22.JPG" alt="" title="" style="display: none;">
-                        <img src="media/22.5.JPG" alt="" title="" style="display: none;">
-                        <img src="media/23.JPG" alt="" title="" style="display: none;">
-                        <img src="media/24.JPG" alt="" title="" style="display: none;">
-                        <img src="media/25.JPG" alt="" title="" style="display: none;">
-                        <img src="media/25.5.JPG" alt="" title="" style="display: none;">
-                        <img src="media/26.JPG" alt="" title="" style="display: none;">
-                        <img src="media/30.JPG" alt="" title="" style="display: none;">
-                        <img src="media/31.JPG" alt="" title="" style="display: none;">
-                    <div style="width: 1010px; height: 673px; position: relative; display: none;"><div style="width: 1010px; height: 673px; position: relative; top: 0px; left: 0px; display: block;"><div style="width: 1010px; height: 673px; position: absolute; top: 0px; left: 0px; overflow: hidden;"><img src="media/22.JPG" width="1010" height="672.6600000000001"></div></div><div style="width: 1010px; height: 673px; position: relative; top: 0px; left: 0px; display: block;"></div><div style=""></div></div><div style="width: 1519px; height: 1012px; position: relative; display: none;"><div style="width: 1519px; height: 1012px; position: relative; top: 0px; left: 0px; display: block;"><div style="width: 1519px; height: 1012px; position: absolute; top: 0px; left: 0px; overflow: hidden;"><img src="media/22.JPG" width="1519" height="1011.6540000000001"></div></div><div style="width: 1519px; height: 1012px; position: relative; top: 0px; left: 0px; display: block;"></div><div style=""></div></div><div style="width: 867px; height: 577px; position: relative;"><div style="width: 867px; height: 577px; position: relative; top: 0px; left: 0px; display: block;"><div style="width: 867px; height: 577px; position: absolute; top: 0px; left: 0px; overflow: hidden;"><img src="media/22.JPG" width="867" height="577.422"></div></div><div style="width: 867px; height: 577px; position: relative; top: 0px; left: 0px; display: block;"></div><div style=""></div></div></div>
-                    <div class="c"></div>
-
-                    <script type="text/javascript">
-                            demo3Effect1 = { name: 'myEffect31', top: true, move: true, duration: 400 };
-                            demo3Effect2 = { name: 'myEffect32', right: true, move: true, duration: 400 };
-                            demo3Effect3 = { name: 'myEffect33', bottom: true, move: true, duration: 400 };
-                            demo3Effect4 = { name: 'myEffect34', left: true, move: true, duration: 400 };
-                            demo3Effect5 = { name: 'myEffect35', rows: 3, cols: 9, delay: 50, duration: 100, order: 'random', fade: true };
-                            demo3Effect6 = { name: 'myEffect36', rows: 2, cols: 4, delay: 100, duration: 400, order: 'random', fade: true, chess: true };
-
-                            effectsDemo3 = [demo3Effect6];
-                            curr_window = $(window).width();
-                            window.onresize = function (event) {
-                                curr_window = $(window).width();
-                                var demoSlider_3 = Sliderman.slider({ container: 'SliderName_3', width: curr_window, height: curr_window * 0.666, effects: effectsDemo3, display: { autoplay: 3000 } });
-
-                            };
-                            var demoSlider_3 = Sliderman.slider({ container: 'SliderName_3', width: curr_window, height: curr_window * 0.666, effects: effectsDemo3, display: { autoplay: 3000 } });
-                    </script>
-                    <div class="c"></div>
-
-                </div>
-                <div class="c"></div>
-
-            </div>
-            <div class="c"></div>
-        </div>
-        </div>
+    <div id="hero"></div>
 
     <div class="bigbox" style="padding: 0px 100px;">
         <h2>Executive Commitee</h2>
@@ -301,6 +185,6 @@
             <span class="stretch"></span>
         </div>
         </div>
-    
-
-</body></html>
+        <script src="main.js"></script>
+    </body>
+</html>

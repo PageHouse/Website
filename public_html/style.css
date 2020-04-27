@@ -171,3 +171,17 @@
     font-size: 0;
     line-height: 0
 }
+
+#hero {
+    width: 100%;
+    height: auto;
+}
+
+#hero img {
+    display: none;
+    width: 100%;
+}
+
+#hero .active {
+    display: block;
+}
