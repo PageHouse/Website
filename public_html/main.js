@@ -5,7 +5,7 @@ class Hero {
 
     constructor(container) {
         this.container = container;
-        this.total_count = 33;
+        this.total_count = 10;
         this.loaded_count = 0;
         this.active = null;
         this.loadImage();
