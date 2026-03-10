@@ -17,9 +17,9 @@ class Hero {
     loadImage() {
         let zero_pad = num => `0000${num}`.slice(-4);
         if (this.loaded_count >= this.total_count - 1) return; 
-        this.loaded_count += 1;
         let img = document.createElement("img");
         img.src = "https://pagehouse.github.io/media/hero/" + zero_pad(this.loaded_count, 4) + ".jpg";
+        this.loaded_count += 1;
         this.container.appendChild(img);
     }
 
