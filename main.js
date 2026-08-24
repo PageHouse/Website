@@ -366,10 +366,8 @@ class Hero {
         const prevTrigger = prev.querySelector('.event-desc-trigger');
         if (prevBody && prevBody.classList.contains('open')) {
             prevBody.classList.remove('open');
-            prevBody.style.maxHeight = '';
             prevTrigger.classList.remove('open');
-            prevTrigger.querySelector('span:first-child').textContent = 'Read more';
-            slideshowWrap.classList.remove('desc-open');
+            prevTrigger.querySelector('span:first-child').textContent = 'Details';
             isHovered = false;
         }
         current = (idx + slides.length) % slides.length;
@@ -397,20 +395,12 @@ class Hero {
         trigger.addEventListener('click', () => {
             const isOpen = body.classList.toggle('open');
             trigger.classList.toggle('open', isOpen);
-            label.textContent = isOpen ? 'Read less' : 'Read more';
-            slideshowWrap.classList.toggle('desc-open', isOpen);
+            label.textContent = isOpen ? 'Close' : 'Details';
             if (isOpen) {
-                const slideH = slideshowWrap.offsetHeight;
-                const titleBar = slide.querySelector('.event-slide-title-bar');
-                const titleH = titleBar ? titleBar.offsetHeight : 0;
-                const triggerH = trigger.offsetHeight;
-                const segH = segBarWrap.offsetHeight;
-                body.style.maxHeight = (slideH - titleH - triggerH - segH) + 'px';
                 isHovered = true;
                 clearTimeout(autoTimer);
                 cancelAnimationFrame(rafId);
             } else {
-                body.style.maxHeight = '';
                 isHovered = false;
                 const currentPct = parseFloat(segments[current].fill.style.width || '0');
                 const elapsed = currentPct / 100 * SLIDE_DURATION;

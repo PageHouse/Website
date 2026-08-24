@@ -922,10 +922,6 @@ iframe {
     background: var(--bg-deeper);
 }
 
-.events-slideshow-wrap.desc-open {
-    /* no override needed, height is fixed */
-}
-
 .events-slideshow {
     position: absolute;
     inset: 0;
@@ -959,6 +955,17 @@ iframe {
     height: 100%;
     object-fit: cover;
     filter: brightness(0.75) saturate(1.1);
+    transform: scale(1);
+    transform-origin: center;
+}
+
+@keyframes event-kenburns {
+    from { transform: scale(1); }
+    to   { transform: scale(1.07); }
+}
+
+.event-slide.active .event-slide-img {
+    animation: event-kenburns 6.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .event-slide-title-bar {
@@ -966,10 +973,22 @@ iframe {
     top: 0;
     left: 0;
     right: 0;
-    padding: 36px 80px 64px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+    padding: 40px 72px 96px;
+    background: linear-gradient(180deg, rgba(8,10,14,0.82) 0%, rgba(8,10,14,0.35) 55%, transparent 100%);
     z-index: 3;
     pointer-events: none;
+}
+
+.event-slide-eyebrow {
+    display: block;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    opacity: 0.85;
+    margin-bottom: 10px;
 }
 
 .event-slide-title-bar h2 {
@@ -997,35 +1016,40 @@ iframe {
 
 .event-slide-desc {
     position: absolute;
-    bottom: 44px;
-    left: 0;
-    right: 0;
+    left: 72px;
+    bottom: 84px;
     z-index: 4;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: min(420px, calc(100% - 144px));
 }
 
 .event-desc-trigger {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
-    padding: 11px 20px;
-    width: 100%;
-    background: rgba(110,190,252,0.15);
-    border: none;
-    border-top: 1px solid rgba(110,190,252,0.25);
+    padding: 10px 18px;
+    background: rgba(10,12,16,0.55);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
     cursor: pointer;
     user-select: none;
     color: rgba(255,255,255,0.85);
     font-family: 'Trebuchet MS', sans-serif;
-    font-size: 0.78em;
-    letter-spacing: 0.12em;
+    font-size: 0.74em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    transition: background 0.2s, color 0.2s;
-    backdrop-filter: blur(4px);
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    backdrop-filter: blur(8px);
+    flex-shrink: 0;
 }
 
-.event-desc-trigger:hover {
-    background: rgba(110,190,252,0.28);
+.event-desc-trigger:hover,
+.event-desc-trigger.open {
+    background: rgba(110,190,252,0.22);
+    border-color: rgba(110,190,252,0.5);
     color: #fff;
 }
 
@@ -1040,22 +1064,30 @@ iframe {
 }
 
 .event-desc-body {
+    width: 100%;
     max-height: 0;
+    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.45s ease;
-    background: rgba(10,10,10,0.9);
-    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    background: rgba(10,12,16,0.78);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
 }
 
 .event-desc-body.open {
+    max-height: 260px;
+    opacity: 1;
+    padding: 4px 2px;
     overflow-y: auto;
 }
 
 .event-desc-body p {
     margin: 0;
-    padding: 18px 80px 22px;
-    font-size: 0.95em;
-    color: rgba(232,226,217,0.88);
+    padding: 16px 20px;
+    font-size: 0.92em;
+    color: rgba(232,226,217,0.9);
     text-align: left;
     line-height: 1.75;
     max-width: none;
@@ -1065,46 +1097,82 @@ iframe {
 .events-next {
     position: absolute;
     top: 0;
-    bottom: 44px;
-    width: 72px;
-    z-index: 5;
+    bottom: 0;
+    width: 15%;
+    min-width: 84px;
+    max-width: 160px;
+    z-index: 3;
     background: transparent;
     border: none;
     cursor: pointer;
-    color: rgba(255,255,255,0.5);
-    font-size: 28px;
+    color: rgba(255,255,255,0.6);
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: background 0.2s, color 0.2s;
+    transition: color 0.25s ease;
 }
 
-.events-prev { left: 0; }
-.events-next { right: 0; }
+.events-prev { left: 0; justify-content: flex-start; padding-left: 18px; }
+.events-next { right: 0; justify-content: flex-end; padding-right: 18px; }
+
+.events-prev::before,
+.events-next::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 64px;
+    height: 64px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 72%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.events-prev::before { left: 0; }
+.events-next::before { right: 0; }
 
 .events-prev:hover,
 .events-next:hover {
-    background: rgba(0,0,0,0.28);
-    color: rgba(255,255,255,0.95);
+    color: #fff;
 }
+
+.events-prev:hover::before,
+.events-next:hover::before {
+    opacity: 1;
+}
+
+.events-prev svg,
+.events-next svg {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+    transition: transform 0.25s ease;
+}
+
+.events-prev:hover svg { transform: translateX(-3px); }
+.events-next:hover svg { transform: translateX(3px); }
 
 .events-seg-bar-wrap {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 44px;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    width: min(560px, calc(100% - 64px));
     display: flex;
     align-items: center;
-    padding: 0 80px;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(6px);
+    padding: 9px 16px;
+    background: rgba(8,10,14,0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.3);
     z-index: 6;
 }
 
 .events-seg-bar {
     display: flex;
-    gap: 5px;
+    gap: 6px;
     width: 100%;
 }
 
@@ -1112,7 +1180,7 @@ iframe {
     flex: 1;
     height: 3px;
     border-radius: 2px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.18);
     border: none;
     padding: 0;
     cursor: pointer;
@@ -1122,7 +1190,7 @@ iframe {
 }
 
 .events-seg:hover {
-    background: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.32);
 }
 
 .events-seg-fill {
@@ -1132,6 +1200,7 @@ iframe {
     width: 0%;
     background: var(--blue-light);
     border-radius: 2px;
+    box-shadow: 0 0 8px rgba(110,190,252,0.7);
 }
 
 /* ─── Events mobile scroll list ──────────────────────────────────── */
