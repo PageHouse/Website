@@ -7,11 +7,12 @@
     if (!nav) return;
 
     const NAV_LINKS = [
-        { href: 'index.html',  label: 'Page'   },
-        { href: 'bylaws.html', label: 'Bylaws' },
-        { href: 'about.html',  label: 'About'  },
-        { href: 'events.html', label: 'Events' },
-        { href: 'donate.html', label: 'Donate' },
+        { href: 'index.html',      label: 'Page'       },
+        { href: 'bylaws.html',     label: 'Bylaws'     },
+        { href: 'about.html',      label: 'About'      },
+        { href: 'events.html',     label: 'Events'     },
+        { href: 'newsletter.html', label: 'Newsletter' },
+        { href: 'donate.html',     label: 'Donate'     },
     ];
 
     const currentFile = window.location.pathname.split('/').pop() || 'index.html';
@@ -459,4 +460,94 @@ class Hero {
             scrollList.appendChild(card);
         });
     }
+})();
+
+/**
+ * Newsletter page: renders a grid of PDF issue cards and a click-to-expand
+ * full-screen modal viewer. To add an issue, add an entry to NEWSLETTERS below.
+ */
+(function () {
+    const grid = document.getElementById('newsletter-grid');
+    if (!grid) return;
+
+    const NEWSLETTERS = [
+        {
+            title: 'Issue No. 1 (Sample)',
+            date: 'August 2026',
+            description: 'A note from the President, upcoming events on the calendar, and news from around the house.',
+            file: 'newsletters/sample-issue.pdf'
+        }
+    ];
+
+    const DOC_ICON = `
+        <svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 4 H66 L86 24 V122 A4 4 0 0 1 82 126 H14 A4 4 0 0 1 10 122 V8 A4 4 0 0 1 14 4 Z"
+                  fill="#2e2e38" stroke="rgba(110,190,252,0.55)" stroke-width="2"/>
+            <path d="M66 4 V20 A4 4 0 0 0 70 24 H86 Z" fill="rgba(110,190,252,0.35)"/>
+            <rect x="24" y="70" width="52" height="26" rx="4" fill="#3180C3"/>
+            <text x="50" y="88" text-anchor="middle" font-family="'Trebuchet MS', sans-serif"
+                  font-size="13" font-weight="bold" fill="#fff" letter-spacing="1">PDF</text>
+            <rect x="24" y="40" width="52" height="4" rx="2" fill="rgba(255,255,255,0.18)"/>
+            <rect x="24" y="50" width="38" height="4" rx="2" fill="rgba(255,255,255,0.18)"/>
+        </svg>`;
+
+    const overlay   = document.getElementById('newsletter-modal-overlay');
+    const frame     = document.getElementById('newsletter-modal-frame');
+    const titleEl   = document.getElementById('newsletter-modal-title');
+    const openLink  = document.getElementById('newsletter-modal-open');
+    const closeBtn  = document.getElementById('newsletter-modal-close');
+
+    function openModal(item) {
+        titleEl.textContent = item.title;
+        openLink.href = item.file;
+        frame.src = item.file;
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        frame.src = '';
+    }
+
+    NEWSLETTERS.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'newsletter-card';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', 'Open ' + item.title);
+
+        const thumb = document.createElement('div');
+        thumb.className = 'newsletter-thumb';
+        thumb.innerHTML = DOC_ICON;
+
+        const body = document.createElement('div');
+        body.className = 'newsletter-card-body';
+        body.innerHTML = `
+            <h2>${item.title}</h2>
+            <p class="newsletter-card-date">${item.date}</p>
+            ${item.description ? `<p class="newsletter-card-desc">${item.description}</p>` : ''}
+        `;
+
+        card.appendChild(thumb);
+        card.appendChild(body);
+        grid.appendChild(card);
+
+        card.addEventListener('click', () => openModal(item));
+        card.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal(item);
+            }
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
 })();

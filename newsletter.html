@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bylaws | Page House</title>
+    <title>Newsletter | Page House</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -12,17 +12,44 @@
     <div class="hero-overlay nav-only"><nav id="nav" class="alt">
         <ul class="leftnav">
             <li><a href="index.html">Page</a></li>
-            <li><a href="bylaws.html" class="active">Bylaws</a></li>
+            <li><a href="bylaws.html">Bylaws</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter.html" class="active">Newsletter</a></li>
             <li><a href="donate.html">Donate</a></li>
         <a href="https://www.instagram.com/whose.house/" class="nav-instagram" target="_blank" aria-label="Page House Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><radialGradient id="ig-rg" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path fill="url(#ig-rg)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
     </nav></div>
 
-    <div class="bylaws-embed-wrap">
-        <embed src="bylaws.pdf" type="application/pdf">
+    <div class="page-header">
+        <img class="page-header-crest" src="Page_Transparent.png" alt="Page House Crest">
+        <div class="page-header-text">
+            <h1>Newsletter</h1>
+            <p>news &amp; updates from the House</p>
+        </div>
     </div>
+
+    <section>
+        <h1 style="text-align: center;">Latest Issues</h1>
+        <p>Click any issue below to open it full-screen. Past issues stay archived here so you can catch up any time.</p>
+    </section>
+
+    <section>
+        <div class="newsletter-grid" id="newsletter-grid"></div>
+    </section>
+
+    <div class="newsletter-modal-overlay" id="newsletter-modal-overlay">
+        <div class="newsletter-modal">
+            <div class="newsletter-modal-bar">
+                <span class="newsletter-modal-title" id="newsletter-modal-title"></span>
+                <div class="newsletter-modal-actions">
+                    <a id="newsletter-modal-open" class="newsletter-modal-link" href="#" target="_blank" rel="noopener">Open in new tab &#8599;</a>
+                    <button type="button" class="newsletter-modal-close" id="newsletter-modal-close" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <iframe id="newsletter-modal-frame" class="newsletter-modal-frame" title="Newsletter PDF viewer"></iframe>
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
