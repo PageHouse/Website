@@ -1111,7 +1111,7 @@ iframe {
     transition: color 0.25s ease;
 }
 
-.events-prev { left: 0; justify-content: flex-start; padding-left: 18px; }
+.events-prev { left: 0; justify-content: flex-start; padding-left: 18px; bottom: 150px; }
 .events-next { right: 0; justify-content: flex-end; padding-right: 18px; }
 
 .events-prev::before,
