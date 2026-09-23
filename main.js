@@ -360,6 +360,9 @@ class Hero {
         autoTimer = setTimeout(() => goTo(current + 1), SLIDE_DURATION);
     }
 
+    // Track any pending cleanup timeouts so quick clicks don't remove active slides
+    const pendingCleanup = new Map();
+
     function goTo(idx) {
         const prev = slides[current];
         const prevBody = prev.querySelector('.event-desc-body');
@@ -371,10 +374,27 @@ class Hero {
             isHovered = false;
         }
         current = (idx + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        if (prev !== slides[current]) {
+        const next = slides[current];
+
+        // Cancel any pending removal on the incoming slide
+        if (pendingCleanup.has(next)) {
+            clearTimeout(pendingCleanup.get(next));
+            pendingCleanup.delete(next);
+            next.classList.remove('leaving');
+        }
+
+        next.classList.add('active');
+        if (prev !== next) {
+            // Cancel any pending removal on prev too (in case of rapid clicking)
+            if (pendingCleanup.has(prev)) {
+                clearTimeout(pendingCleanup.get(prev));
+            }
             prev.classList.add('leaving');
-            setTimeout(() => prev.classList.remove('active', 'leaving'), 1200);
+            const t = setTimeout(() => {
+                prev.classList.remove('active', 'leaving');
+                pendingCleanup.delete(prev);
+            }, 1200);
+            pendingCleanup.set(prev, t);
         }
         updateSegments(0);
         startTimer();
