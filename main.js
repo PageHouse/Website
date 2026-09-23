@@ -522,6 +522,13 @@ class Hero {
         thumb.className = 'newsletter-thumb';
         thumb.innerHTML = DOC_ICON;
 
+        // Browser's native PDF viewer renders the real first page over the fallback icon.
+        const preview = document.createElement('embed');
+        preview.className = 'newsletter-thumb-preview';
+        preview.type = 'application/pdf';
+        preview.src = item.file + '#toolbar=0&navpanes=0&statusbar=0&view=FitH';
+        thumb.appendChild(preview);
+
         const body = document.createElement('div');
         body.className = 'newsletter-card-body';
         body.innerHTML = `
